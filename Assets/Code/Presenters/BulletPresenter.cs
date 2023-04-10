@@ -32,7 +32,7 @@ public class BulletPresenter : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.TryGetComponent(out Presenter presenter))
+        if (collider.TryGetComponent(out UnitPresenter presenter))
             presenter.Model.Health.TakeDamage(_bulletModel.Damage);
 
         Destroy(gameObject);

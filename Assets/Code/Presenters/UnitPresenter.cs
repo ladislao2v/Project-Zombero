@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Presenter : MonoBehaviour, IPresenter
+public class UnitPresenter : MonoBehaviour, IPresenter
 {
     private Unit _model;
-    private readonly float _dieDelay = 7f;
+    private readonly float _dieDelay = 5f;
 
     public Unit Model => _model;
 

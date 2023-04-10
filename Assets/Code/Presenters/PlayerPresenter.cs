@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent (typeof(Animator))]
-public class PlayerPresenter : Presenter, IPresenter
+public class PlayerPresenter : UnitPresenter, IPresenter
 {
     private Player _playerModel;
     private NavMeshAgent _agent;

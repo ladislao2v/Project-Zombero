@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class ZombiePresenter : Presenter
+public class ZombiePresenter : UnitPresenter
 {
     private Zombie _zombieModel;
     private NavMeshAgent _agent;

@@ -59,7 +59,7 @@ public class Gun : IGun
 
             if (Physics.Raycast(gun.position, DirectionToTarget, out RaycastHit hit, float.MaxValue))
             {
-                if (hit.collider.gameObject.TryGetComponent(out Presenter presenter))
+                if (hit.collider.gameObject.TryGetComponent(out UnitPresenter presenter))
                 {
                     if (CanShoot())
                     {

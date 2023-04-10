@@ -5,7 +5,7 @@ public class Factory : MonoBehaviour
 {
     [SerializeField] private BulletPresenter _bulletTemplate;
 
-    [SerializeField] private List<Presenter> _enemies;
+    [SerializeField] private List<UnitPresenter> _enemies;
 
     public void CreateBullet(Bullet bullet, Vector3 position)
     {
