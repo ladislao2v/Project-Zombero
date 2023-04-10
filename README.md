@@ -1,6 +1,15 @@
 # Project Zombero
 
-Project Zombero by Ladislao(Mason Interactive) - В процессе разработке. Демонстарционный вариант
+## О проекте
+Project Zombero by Ladislao(Mason Interactive)
+
+## Архитектура
+
+MVP - Passive View ( ЯП: С#, Движок: Unity Engine )  
+
+## Этап разрвботки
+Разработка игровой логики.
+
 
 # Описание
 
