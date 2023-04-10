@@ -12,7 +12,7 @@ public class Zombie : Unit
     {
         if (Target)
         {
-            return Target.position * Time.fixedDeltaTime;
+            return Target.position;
         }
         
         return position;
