@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class GunPresenter : MonoBehaviour
 {
     [SerializeField] private LayerMask _targetMask;
 
     private Gun _gunModel;
-    //private Animator _animator;
+    private Animator _animator;
 
     private const string _shoot = "Shoot";
 
@@ -15,6 +16,11 @@ public class GunPresenter : MonoBehaviour
         _gunModel.GetTargetsMask(_targetMask);
 
         _gunModel.Shot += OnShot;
+    }
+
+    private void OnEnable()
+    {
+        _animator = GetComponentInParent<Animator>(); 
     }
 
     private void OnDisable()
@@ -31,7 +37,7 @@ public class GunPresenter : MonoBehaviour
 
     protected void OnShot(Bullet bullet)
     {
-        //_animator.SetTrigger(_shoot);
+        _animator.SetTrigger(_shoot);
     }
 
     private void OnDrawGizmos()
