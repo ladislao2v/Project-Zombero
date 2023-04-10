@@ -502,7 +502,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: c51050087ea26c14e952d5c3001ec5f7, type: 3}
       propertyPath: m_Name
-      value: RoadBlock_C
+      value: RoadBlock
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: c51050087ea26c14e952d5c3001ec5f7, type: 3}
       propertyPath: m_NavMeshLayer
@@ -1380,7 +1380,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 86f783457a9659e41a99dc3147fefdba, type: 3}
       propertyPath: m_Name
-      value: RoadBlock_A (2)
+      value: RoadBlock
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 86f783457a9659e41a99dc3147fefdba, type: 3}
       propertyPath: m_NavMeshLayer
@@ -2414,7 +2414,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 86f783457a9659e41a99dc3147fefdba, type: 3}
       propertyPath: m_Name
-      value: RoadBlock_A (1)
+      value: RoadBlock
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 86f783457a9659e41a99dc3147fefdba, type: 3}
       propertyPath: m_NavMeshLayer
@@ -2502,7 +2502,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: c51050087ea26c14e952d5c3001ec5f7, type: 3}
       propertyPath: m_Name
-      value: RoadBlock_C (1)
+      value: RoadBlock
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: c51050087ea26c14e952d5c3001ec5f7, type: 3}
       propertyPath: m_NavMeshLayer
@@ -2585,7 +2585,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 86f783457a9659e41a99dc3147fefdba, type: 3}
       propertyPath: m_Name
-      value: RoadBlock_A
+      value: RoadBlock
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 86f783457a9659e41a99dc3147fefdba, type: 3}
       propertyPath: m_NavMeshLayer
