@@ -1,6 +1,6 @@
 # Project Zombero
 
-Project Zombero by Ladislao(Mason Interactive)
+Project Zombero by Ladislao(Mason Interactive) - В процессе разработке. Демонстарционный вариант
 
 # Описание
 
