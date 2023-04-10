@@ -24,7 +24,7 @@ public class ZombiePresenter : Presenter
     {
         if (_agent.enabled)
         {
-            _agent.destination = _zombieModel.Move(transform.position, Time.fixedDeltaTime);
+            _agent.SetDestination(_zombieModel.Move(transform.position, Time.fixedDeltaTime));
         }
     }
 
