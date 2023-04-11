@@ -5,7 +5,7 @@ public class Factory : MonoBehaviour
 {
     [SerializeField] private BulletPresenter _bulletTemplate;
 
-    [SerializeField] private List<UnitPresenter> _enemies;
+    [SerializeField] private List<ZombiePresenter> _zombieTamplates;
 
     public void CreateBullet(Bullet bullet, Vector3 position)
     {
@@ -15,9 +15,14 @@ public class Factory : MonoBehaviour
 
     public void CreateZombie(Vector3 position)
     {
-        var enemyTemplate = _enemies[Random.Range(0, _enemies.Count)];
+        var enemyTemplate = _zombieTamplates[Random.Range(0, _zombieTamplates.Count)];
         var enemy = Instantiate(enemyTemplate, position, Quaternion.identity);
+        var zombie = new Zombie(400);
 
-        enemy.Init(new Zombie(400));
+        enemy.Init(zombie);
+        enemy.Init((Unit)zombie);
+        enemy.GetComponentInChildren<GunPresenter>().Init(new Hands(enemy.Zombie, 10));
+
+        enemy.transform.LookAt(-transform.forward);
     }
 }

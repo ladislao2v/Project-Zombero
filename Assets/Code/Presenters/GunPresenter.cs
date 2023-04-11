@@ -14,8 +14,6 @@ public class GunPresenter : MonoBehaviour
     {
         _gunModel = gun;
         _gunModel.GetTargetsMask(_targetMask);
-
-        _gunModel.Shot += OnShot;
     }
 
     private void OnEnable()
@@ -23,21 +21,11 @@ public class GunPresenter : MonoBehaviour
         _animator = GetComponentInParent<Animator>(); 
     }
 
-    private void OnDisable()
-    {
-        _gunModel.Shot -= OnShot;
-    }
-
     private void Update()
     {
         _gunModel.FindTarget(transform);
 
         _gunModel.Recharge(Time.deltaTime);
-    }
-
-    protected void OnShot(Bullet bullet)
-    {
-        _animator.SetTrigger(_shoot);
     }
 
     private void OnDrawGizmos()

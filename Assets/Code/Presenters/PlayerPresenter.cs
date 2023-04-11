@@ -10,7 +10,6 @@ public class PlayerPresenter : UnitPresenter, IPresenter
     private Animator _animator;
 
     private const string _isRun = "isRun";
-    private const string _shoot = "Shoot";
     private const string _death = "Death";
 
     public void Init(Player player)
