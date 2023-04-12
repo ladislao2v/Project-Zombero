@@ -27,10 +27,12 @@ public class Hands : Gun
 
         _lastKick += Time.deltaTime;
 
-        if (Physics.Raycast(unit.position, DirectionToTarget, _attackDistance))
+        if (Physics.Raycast(unit.position, DirectionToTarget, out RaycastHit target, _attackDistance))
         {
             if (_lastKick > _kickRate)
             {
+                //target.collider.GetComponent<UnitPresenter>().Model.Health.TakeDamage(100);
+
                 Kicked?.Invoke();
 
                 _kickRate = 0.3f;

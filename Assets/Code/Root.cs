@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class Root : MonoBehaviour
 {
     [SerializeField] private Factory _factory;
     [SerializeField] private List<Transform> _spawnTransforms;
-
+    [SerializeField] private NavMeshSurface _map;
 
     [SerializeField] private PlayerPresenter _playerPresenter;
     [SerializeField] private GunPresenter _gunPlayerPresenter;
@@ -21,6 +22,9 @@ public class Root : MonoBehaviour
 
     private void Awake()
     {
+        _map?.BuildNavMesh();
+        Debug.ClearDeveloperConsole();
+
         _player = new Player(750);
 
         _cam = new Cam();

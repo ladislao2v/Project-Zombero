@@ -6,19 +6,11 @@ public class GunPresenter : MonoBehaviour
     [SerializeField] private LayerMask _targetMask;
 
     private Gun _gunModel;
-    private Animator _animator;
-
-    private const string _shoot = "Shoot";
 
     public virtual void Init(Gun gun)
     {
         _gunModel = gun;
         _gunModel.GetTargetsMask(_targetMask);
-    }
-
-    private void OnEnable()
-    {
-        _animator = GetComponentInParent<Animator>(); 
     }
 
     private void Update()
