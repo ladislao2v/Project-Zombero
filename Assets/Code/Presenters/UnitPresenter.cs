@@ -3,7 +3,7 @@ using UnityEngine;
 public class UnitPresenter : MonoBehaviour, IPresenter
 {
     private Unit _model;
-    private readonly float _dieDelay = 4.5f;
+    protected readonly float DieDelay = 4.5f;
 
     public Unit Model => _model;
 
@@ -29,7 +29,12 @@ public class UnitPresenter : MonoBehaviour, IPresenter
 
     public virtual void OnDied()
     {
-        Destroy(gameObject, _dieDelay);
+        Invoke(nameof(Die), DieDelay);
+    }
+
+    private void Die()
+    {
+        gameObject.SetActive(false);
     }
 }
 

@@ -8,6 +8,8 @@ public class ZombiePresenter : UnitPresenter
     private NavMeshAgent _agent;
     private Animator _animator;
     private CapsuleCollider _capsuleCollider;
+    private float _lastKick = 0;
+    private float _kickRate = 0;
 
     private const string _isRun = "isRun";
     private const string _shoot = "Shoot";
@@ -51,8 +53,6 @@ public class ZombiePresenter : UnitPresenter
 
     public override void OnDied()
     {
-        _agent.SetDestination(transform.position);
-
         _capsuleCollider.enabled = false;
         _agent.enabled = false;
 
@@ -60,5 +60,25 @@ public class ZombiePresenter : UnitPresenter
         _animator.SetTrigger(_death);
 
         base.OnDied();
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        _lastKick += Time.deltaTime;
+
+        if (_lastKick > _kickRate)
+        {
+            if (collision.gameObject.TryGetComponent(out PlayerPresenter presenter))
+            {
+                Debug.Log(collision.gameObject.name);
+                _animator.SetTrigger(_shoot);
+
+                presenter.Model.Health.TakeDamage(_zombieModel.Damage);
+            }
+
+            _kickRate = 0.3f;
+            _lastKick = 0f;
+        }
+
     }
 }

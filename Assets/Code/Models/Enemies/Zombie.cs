@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Zombie : Unit
 {
+    public int Damage { get; private set; } = 250;
     public Transform Target { get; private set; }
 
     public Zombie(int healthValue) : base(healthValue)

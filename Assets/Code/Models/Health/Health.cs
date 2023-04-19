@@ -19,7 +19,7 @@ public class Health : IHealth
 
     public void TakeDamage(int value)
     {
-        if (value > _currentValue)
+        if (value < 0)
             throw new ArgumentException("Incorrect damage value");
 
         _currentValue -= value;
