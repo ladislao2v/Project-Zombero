@@ -1,13 +1,14 @@
 using System.Collections.Generic;
+using System.Linq;
 using Unity.AI.Navigation;
 using UnityEngine;
 
 public class Root : MonoBehaviour
 {
     [SerializeField] private Factory _factory;
-    [SerializeField] private List<Transform> _spawnTransforms;
-    [SerializeField] private NavMeshSurface _map;
-
+    [SerializeField] private List<MapAsset> _mapAssets;
+    [SerializeField] private NavMeshSurface _surface;
+    [SerializeField] private Transform _map;
     [SerializeField] private PlayerPresenter _playerPresenter;
     [SerializeField] private GunPresenter _gunPlayerPresenter;
     [SerializeField] private CamPresenter _camPresenter;
@@ -17,12 +18,13 @@ public class Root : MonoBehaviour
     private Gun _gun;
     private Cam _cam;
     private UserInputHandler _inputHandler;
+    private List<Transform> _spawnTransforms;
 
     public Player Player => _player;
 
     private void Awake()
     {
-        _map?.BuildNavMesh();
+        _surface?.BuildNavMesh();
         Debug.ClearDeveloperConsole();
 
         _player = new Player(750);
@@ -40,8 +42,7 @@ public class Root : MonoBehaviour
         _inputHandler.OnEnable();
         _gun.Shot += OnShot;
 
-        foreach (var transform in _spawnTransforms)
-            _factory.CreateZombie(transform.position);
+        BuildLevel();
     }
 
     private void OnShot(Bullet bullet)
@@ -58,5 +59,33 @@ public class Root : MonoBehaviour
     private void Update()
     {
         _inputHandler.Update();
+    }
+
+    private void BuildLevel()
+    {
+        GenerateMap();
+
+        foreach (var transform in _spawnTransforms)
+            _factory.CreateZombie(transform.position);
+    }
+
+    private void GenerateMap()
+    {
+        var mapAsset = _mapAssets[Random.Range(0, _mapAssets.Count)];
+
+        var map = Instantiate(mapAsset.Map, Vector3.zero , Quaternion.identity, _map);
+        var points = Instantiate(mapAsset.SpawnPoints, Vector3.zero, Quaternion.identity, _map);
+
+        _spawnTransforms = points.GetComponentsInChildren<Transform>().ToList();
+
+        foreach (var transform in _spawnTransforms)
+        {
+            if (transform.position == points.transform.position)
+            {
+                _spawnTransforms.Remove(transform);
+
+                break;
+            }
+        }
     }
 }
